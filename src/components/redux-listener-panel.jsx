@@ -72,10 +72,11 @@ class ReduxListenerPanel extends React.PureComponent {
     }
 
     return this.state.actions.map((action, index) => {
+      const {type, ...rest} = action
       return (
         <tr key={index}>
-          <td>{action.type}</td>
-          <td><pre>{JSON.stringify(action.payload, null, 2)}</pre></td>
+          <td>{type}</td>
+          <td><pre>{JSON.stringify(rest, null, 2)}</pre></td>
         </tr>
       );
     });
